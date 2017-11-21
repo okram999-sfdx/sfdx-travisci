@@ -7,7 +7,7 @@ node('master') {
     def JWT_KEY_FILE='/var/jenkins_home/certificates/server2.key'
     def HUB_USERNAME='nirish.okram@ghub1.com'
     
-    sh 'sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --username ${HUB_USERNAME} --jwtkeyfile ${JWT_KEY_FILE} --setdefaultdevhubusername'
+    sh "sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --username ${HUB_USERNAME} --jwtkeyfile ${JWT_KEY_FILE} --setdefaultdevhubusername"
 
     try{
 
