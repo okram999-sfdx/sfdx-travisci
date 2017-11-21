@@ -11,6 +11,11 @@ node('master') {
 
     try{
 
+        stage('checkout') {
+  				checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [],
+  					userRemoteConfigs: [[url: 'git@github.com:okram999-sfdx/sfdx-travisci.git']]])
+        }
+        
         stage('ci') {
             
             sh '''sfdx force:org:create -s -f config/project-scratch-def.json -a ciorg
