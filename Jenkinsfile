@@ -25,7 +25,7 @@ node('master') {
                     if (rc != 0) { error 'hub org authorization failed' }
 
                 // create scratch org
-                rmsg = sh returnStdout: true, script: "sfdx force:org:create -s -f config/workspace-scratch-def.json --json -a ciorg"
+                rmsg = sh returnStdout: true, script: "sfdx force:org:create -s -f config/project-scratch-def.json --json -a ciorg"
                 printf rmsg
                 def jsonSlurper = new JsonSlurperClassic()
                 def robj = jsonSlurper.parseText(rmsg)
